@@ -1,0 +1,100 @@
+000 [15, 1, 0] jump main
+001 [-1, 1, 1] stringToInt:
+002 [35, 1, 2, 0, 0] stackget string 0
+003 [32, 1, 3, 1, 2] sizeof size string
+004 [0, 1, 4, 0, 0] assign val 0
+005 [0, 1, 5, 0, 0] assign i 0
+006 [-1, 6, 6] while01:
+007 [28, 1, 5, 1, 3] cmp i size
+008 [20, 1, 7] jge endwhile01
+009 [5, 1, 4, 1, 4, 0, 10] multiply val val 10
+010 [28, 2, 1, 2, 1, 5, 0, '1'] cmp string[i] '1'
+011 [19, 1, 8] jneq notOne
+012 [3, 1, 4, 1, 4, 0, 1] add val val 1
+013 [15, 1, 9] jump continue
+014 [-1, 8, 14] notOne:
+015 [28, 2, 1, 2, 1, 5, 0, '2'] cmp string[i] '2'
+016 [19, 1, 10] jneq notTwo
+017 [3, 1, 4, 1, 4, 0, 2] add val val 2
+018 [15, 1, 9] jump continue
+019 [-1, 10, 19] notTwo:
+020 [28, 2, 1, 2, 1, 5, 0, '3'] cmp string[i] '3'
+021 [19, 1, 11] jneq notThree
+022 [3, 1, 4, 1, 4, 0, 3] add val val 3
+023 [15, 1, 9] jump continue
+024 [-1, 11, 24] notThree:
+025 [28, 2, 1, 2, 1, 5, 0, '4'] cmp string[i] '4'
+026 [19, 1, 12] jneq notFour
+027 [3, 1, 4, 1, 4, 0, 4] add val val 4
+028 [15, 1, 9] jump continue
+029 [-1, 12, 29] notFour:
+030 [28, 2, 1, 2, 1, 5, 0, '5'] cmp string[i] '5'
+031 [19, 1, 13] jneq notFive
+032 [3, 1, 4, 1, 4, 0, 5] add val val 5
+033 [15, 1, 9] jump continue
+034 [-1, 13, 34] notFive:
+035 [28, 2, 1, 2, 1, 5, 0, '6'] cmp string[i] '6'
+036 [19, 1, 14] jneq notSix
+037 [3, 1, 4, 1, 4, 0, 6] add val val 6
+038 [15, 1, 9] jump continue
+039 [-1, 14, 39] notSix:
+040 [28, 2, 1, 2, 1, 5, 0, '7'] cmp string[i] '7'
+041 [19, 1, 15] jneq notSeven
+042 [3, 1, 4, 1, 4, 0, 7] add val val 7
+043 [15, 1, 9] jump continue
+044 [-1, 15, 44] notSeven:
+045 [28, 2, 1, 2, 1, 5, 0, '8'] cmp string[i] '8'
+046 [19, 1, 16] jneq notEight
+047 [3, 1, 4, 1, 4, 0, 8] add val val 8
+048 [15, 1, 9] jump continue
+049 [-1, 16, 49] notEight:
+050 [28, 2, 1, 2, 1, 5, 0, '9'] cmp string[i] '9'
+051 [19, 1, 17] jneq notNine
+052 [3, 1, 4, 1, 4, 0, 9] add val val 9
+053 [15, 1, 9] jump continue
+054 [-1, 17, 54] notNine:
+055 [28, 2, 1, 2, 1, 5, 0, '0'] cmp string[i] '0'
+056 [19, 1, 18] jneq error
+057 [3, 1, 4, 1, 4, 0, 0] add val val 0
+058 [15, 1, 9] jump continue
+059 [-1, 18, 59] error:
+060 [8, 0, 'e'] print 'e'
+061 [8, 0, 'r'] print 'r'
+062 [8, 0, 'r'] print 'r'
+063 [8, 0, 'o'] print 'o'
+064 [9, 0, 'r'] println 'r'
+065 [9, 2, 1, 2, 1, 5] println string[i]
+066 [11] halt
+067 [-1, 9, 67] continue:
+068 [3, 1, 5, 1, 5, 0, 1] add i i 1
+069 [15, 1, 6] jump while01
+070 [-1, 7, 70] endwhile01:
+071 [13, 1, 4] return val
+072 [-1, 19, 72] printString:
+073 [35, 1, 2, 0, 0] stackget string 0
+074 [0, 1, 5, 0, 0] assign i 0
+075 [32, 1, 3, 1, 2] sizeof size string
+076 [-1, 20, 76] loop:
+077 [28, 1, 5, 1, 3] cmp i size
+078 [20, 1, 21] jge endloop
+079 [8, 2, 1, 2, 1, 5] print string[i]
+080 [3, 1, 5, 1, 5, 0, 1] add i i 1
+081 [15, 1, 20] jump loop
+082 [-1, 21, 82] endloop:
+083 [9] println
+084 [13, 0, 0] return 0
+085 [-1, 0, 85] main:
+086 [35, 1, 22, 0, 0] stackget argc 0
+087 [0, 1, 5, 0, 0] assign i 0
+088 [-1, 23, 88] while:
+089 [28, 1, 5, 1, 22] cmp i argc
+090 [20, 1, 24] jge endwhile
+091 [3, 1, 25, 1, 5, 0, 1] add offset i 1
+092 [35, 1, 2, 1, 25] stackget string offset
+093 [33, 1, 2] push string
+094 [12, 1, 19] call printString
+095 [34, 1, 26] pop null
+096 [3, 1, 5, 1, 5, 0, 1] add i i 1
+097 [15, 1, 23] jump while
+098 [-1, 24, 98] endwhile:
+099 [11] halt

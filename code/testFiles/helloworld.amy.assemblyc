@@ -1,0 +1,31 @@
+00 [15, 1, 0] jump main
+01 [-1, 1, 1] getCustomaryPhraseFromHeap:
+02 [1, 1, 2, 0, 13] malloc phrase 13
+03 [0, 2, 1, 2, 0, 0, 0, 'H'] assign phrase[0] 'H'
+04 [0, 2, 1, 2, 0, 1, 0, 'e'] assign phrase[1] 'e'
+05 [0, 2, 1, 2, 0, 2, 0, 'l'] assign phrase[2] 'l'
+06 [0, 2, 1, 2, 0, 3, 0, 'l'] assign phrase[3] 'l'
+07 [0, 2, 1, 2, 0, 4, 0, 'o'] assign phrase[4] 'o'
+08 [0, 2, 1, 2, 0, 5, 0, ','] assign phrase[5] ','
+09 [0, 2, 1, 2, 0, 6, 0, ' '] assign phrase[6] ' '
+10 [0, 2, 1, 2, 0, 7, 0, 'W'] assign phrase[7] 'W'
+11 [0, 2, 1, 2, 0, 8, 0, 'o'] assign phrase[8] 'o'
+12 [0, 2, 1, 2, 0, 9, 0, 'r'] assign phrase[9] 'r'
+13 [0, 2, 1, 2, 0, 10, 0, 'l'] assign phrase[10] 'l'
+14 [0, 2, 1, 2, 0, 11, 0, 'd'] assign phrase[11] 'd'
+15 [0, 2, 1, 2, 0, 12, 0, '!'] assign phrase[12] '!'
+16 [13, 1, 2] return phrase
+17 [-1, 0, 17] main:
+18 [12, 1, 1] call getCustomaryPhraseFromHeap
+19 [14, 1, 3] response msg
+20 [0, 1, 4, 0, 0] assign i 0
+21 [-1, 5, 21] while:
+22 [28, 1, 4, 0, 13] cmp i 13
+23 [20, 1, 6] jge endwhile
+24 [8, 2, 1, 3, 1, 4] print msg[i]
+25 [3, 1, 4, 1, 4, 0, 1] add i i 1
+26 [15, 1, 5] jump while
+27 [-1, 6, 27] endwhile:
+28 [9] println
+29 [2, 1, 3] free msg
+30 [11] halt
